@@ -12,19 +12,25 @@ return elements in Last In First Out order.
 """
 
 
+from doubly_linked_list import DoublyLinkedList
+
+
 class Stack:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        self.storage = DoublyLinkedList()
 
     def __len__(self):
-        return len(self.storage)
+        return self.size
 
     def push(self, value):
-        self.storage.append(value)
+        self.storage.add_to_tail(value)
+        self.size += 1
 
     def pop(self):
         if len(self.storage) > 0:
-            return self.storage.pop()
+            self.size -= 1
+            removed_value = self.storage.remove_from_tail()
+            return removed_value
         else:
-            return None
+            return

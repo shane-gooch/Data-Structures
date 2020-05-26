@@ -51,6 +51,19 @@ class DoublyLinkedList:
     def __len__(self):
         return self.length
 
+    def find_middle(self):
+        middle = self.head
+        end = self.head
+
+        while end != None and end.next.next != None:
+            end = end.next.next
+            middle = middle.next
+
+        return middle
+
+    def reverse_list(self):
+        pass
+
     """Wraps the given value in a ListNode and inserts it 
     as the new head of the list. Don't forget to handle 
     the old head node's previous pointer accordingly."""
